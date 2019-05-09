@@ -46,3 +46,4 @@ endmacro()
 # List of available targets
 
 ADD_GOOGLE_TEST_BOILERPLATE_TEST(main main.cpp)
+ADD_GOOGLE_TEST_BOILERPLATE_TEST(timer uvw/timer.cpp)

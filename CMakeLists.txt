@@ -67,7 +67,7 @@ if(BUILD_TESTING)
     set(BUILD_TESTING OFF)
 
     set(GOOGLETEST_DEPS_DIR ${PROJECT_DEPS_DIR}/googletest)
-    set(LIBUV_DEPS_DIR ${PROJECT_DEPS_DIR}/libuv)
+    set(UVW_DEPS_DIR ${PROJECT_DEPS_DIR}/uvw)
 
     configure_file(${PROJECT_CMAKE_IN}/deps.in ${PROJECT_DEPS_DIR}/CMakeLists.txt)
     execute_process(COMMAND ${CMAKE_COMMAND} -G "${CMAKE_GENERATOR}" . WORKING_DIRECTORY ${PROJECT_DEPS_DIR})
@@ -76,6 +76,8 @@ if(BUILD_TESTING)
     # gtest, gtest_main, gmock and gmock_main targets are available from now on
     set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)
     add_subdirectory(${GOOGLETEST_DEPS_DIR})
+
+    include_directories(${UVW_DEPS_DIR}/src)
 
     set(BUILD_TESTING ON)
     enable_testing()
